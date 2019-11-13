@@ -30,3 +30,27 @@ steps:
     artifactName: 'war'
     pathToPublish: '$(build.artifactStagingDirectory)'
 
+variables:
+  AzureSubscription: '<Azure service connection>'
+  ServerName: '<Database server name>'
+  DatabaseName: '<Database name>'
+  AdminUser: '<SQL user name>'
+  AdminPassword: '<SQL user password>'
+  SQLFile: '<Location of SQL file in $(Build.SourcesDirectory)>'
+
+- task: AzurePowerShell@2
+  displayName: Azure PowerShell script: FilePath
+  inputs:
+    azureSubscription: '$(AzureSubscription)'
+    ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
+    ScriptArguments: '$(ServerName)'
+    azurePowerShellVersion: LatestVersion
+
+- task: CmdLine@1
+  displayName: Run Sqlcmd
+  inputs:
+    filename: Sqlcmd
+    arguments: '-S $(ServerName) -U $(AdminUser) -P $(AdminPassword) -d $(DatabaseName) -i $(SQLFile)'
+    
+
+
