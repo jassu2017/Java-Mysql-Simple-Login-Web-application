@@ -32,4 +32,5 @@ jobs:
     - name: Download a Build Artifact
       uses: actions:download-artifact@v2
       with:
-        name: war
+        name: war 
+        path: ${{github.workspace}}
