@@ -32,5 +32,5 @@ jobs:
     - name: Download a Build Artifact
       uses: actions/download-artifact@v2
       with:
-        name: 'war'
+        name: 'LoginWebApp.war'
         path: ${{github.workspace}}
