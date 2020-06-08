@@ -6,9 +6,9 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ azure-pipelines-1 ]
   pull_request:
-    branches: [ master ]
+    branches: [ azure-pipelines-1 ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +30,7 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Download a Build Artifact
-      uses: actions:download-artifact@v2
+      uses: actions/download-artifact@v2
       with:
         name: 'war'
         path: ${{github.workspace}}
