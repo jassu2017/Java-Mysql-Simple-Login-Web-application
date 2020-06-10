@@ -51,7 +51,7 @@ jobs:
          # Name of the Azure Web App
          app-name: Java-Mysql-Simple-Login-Web-application
          # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
-         publish-profile: $AZUREWEBAPPPUBLISH
+         publish-profile: ${{ secrets.AZUREWEBAPPPUBLISH  }}
          # Enter an existing Slot other than the Production slot
          slot-name: Dev
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
