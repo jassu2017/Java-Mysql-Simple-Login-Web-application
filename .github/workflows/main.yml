@@ -53,7 +53,7 @@ jobs:
          # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
          publish-profile: ${{ secrets.AZUREWEBAPPPUBLISH  }}
          # Enter an existing Slot other than the Production slot
-         slot-name: Dev
+         #slot-name: Dev
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
          package: ${{github.workspace}}/*.war
            # Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated)
