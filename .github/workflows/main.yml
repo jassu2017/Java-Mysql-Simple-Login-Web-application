@@ -43,7 +43,7 @@ jobs:
     # Artifact name
         name: 'LoginWebApp.war'
     # Destination path
-        path: ${{github.workspace}}
+        path: ${{github.workspace}}target/'*.war'
         
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
