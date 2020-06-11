@@ -33,22 +33,22 @@ jobs:
       with:
         java-version: 1.8
         
-    #- name: Analyze with SonarCloud
-     # run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=Java-Git-Actions -Dsonar.organization=Java-Proj -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+    - name: Analyze with SonarCloud
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=Java-Git-Actions -Dsonar.organization= -Dsonar.java_projects host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       SONAR_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
+        
+    #- name: SonarCloud Scan
+     # uses: sonarsource/sonarcloud-github-action@master
       #env:
        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #SONAR_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
         
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
-        
     
     - name: Build with maven
-      #run: mvn -B package --file pom.xml
-      run: org.sonarsource.scanner.maven:sonar
+      run: mvn -B package --file pom.xml
+      #run: org.sonarsource.scanner.maven:sonar
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
