@@ -14,7 +14,7 @@ env:
   AZURE_WEBAPP_NAME: Java-Mysql-Simple-Login-Web-application  # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }} # set this to the path to your web app project
   JAVA_VERSION: '1.8'                # set this to the node version to use
-  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZUREWEBAPPPUBLISH }}
+  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
