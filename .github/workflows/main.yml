@@ -10,6 +10,12 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  AZURE_WEBAPP_NAME: Java-Mysql-Simple-Login-Web-application  # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }} # set this to the path to your web app project
+  JAVA_VERSION: '1.8'                # set this to the node version to use
+  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZUREWEBAPPPUBLISH }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -46,16 +52,16 @@ jobs:
         path: ${{github.workspace}}target/'*.war'
         
     - name: Azure WebApp
-      uses: Azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v2
       with:
          # Name of the Azure Web App
-         app-name: Java-Mysql-Simple-Login-Web-application
+         app-name: ${{ env.AZURE_WEBAPP_NAME }}
          # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
-         publish-profile: ${{ secrets.AZUREWEBAPPPUBLISH  }}
+         publish-profile: ${{ env.AZURE_WEBAPP_PUBLISH_PROFILE }}
          # Enter an existing Slot other than the Production slot
          #slot-name: Dev
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-         package: target/'*.war'
+         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/target/*.war'
            # Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated)
         #images: 
            # Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container scenario
