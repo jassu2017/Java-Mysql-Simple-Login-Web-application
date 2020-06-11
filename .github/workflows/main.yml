@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ My ]
 
 env:
   AZURE_WEBAPP_NAME: Java-Mysql-Simple-Login-Web-application  # set this to your application's name
