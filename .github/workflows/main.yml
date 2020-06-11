@@ -47,7 +47,8 @@ jobs:
         
     
     - name: Build with maven
-      run: mvn -B package --file pom.xml
+      #run: mvn -B package --file pom.xml
+      run: org.sonarsource.scanner.maven:sonar
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
