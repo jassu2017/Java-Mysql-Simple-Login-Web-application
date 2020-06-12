@@ -26,12 +26,17 @@
  		<artifactId>mysql-connector-java</artifactId> 
  		<version>5.1.30</version> 
 	</dependency> 
+	  
+	 
   </dependencies>
+
 	 <properties>
   <sonar.projectKey>jassu2017_Java-Mysql-Simple-Login-Web-application</sonar.projectKey>
   <sonar.organization>jassu2017</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
+
+
   <build>
     <finalName>LoginWebApp</finalName>
   </build>
