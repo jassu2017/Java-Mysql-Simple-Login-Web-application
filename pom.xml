@@ -17,7 +17,7 @@
      <url>https://maven.pkg.github.com/jassu2017/Java-Mysql-Simple-Login-Web-application</url>
    </repository>
  </distributionManagement>
-<dependency>
+</dependency>
 	  
     <dependency>
       <groupId>junit</groupId>
