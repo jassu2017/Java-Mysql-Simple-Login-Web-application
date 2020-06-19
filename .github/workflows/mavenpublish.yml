@@ -1,9 +1,9 @@
 name: Maven Publish to GITHUB Package
 
 on:
-  push
+  push:
     branches: [ Feature-Github-Pkg ]
-  pull_request
+  pull_request:
     branches: [ Feature-Github-Pkg ]
 
 jobs:
